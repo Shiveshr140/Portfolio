@@ -1,0 +1,44 @@
+/* if we wanted to increase the number of columns. Then what would happen is, for example, let's say we had two
+columns and the first element would be, in the first row, first column. And the second element would be in the first row, second column.
+And then they would be move from left to right and top to bottom. So let's try that and see what happens. To do that, we do grid-template-columns and then we can give the CSS engine
+the size of the different columns. So for example, if you do 1fr 1fr 1fr. This is a division of the available space evenly so now we will have three
+columns where they are all equal in size. */
+
+/* Instead of doing 1fr 1fr 1fr , we can use the repeat keyword and do 3 and 1f and that means exactly the same thing.
+In order for you to be able to see this a bit better. Let me add a border to all elements inside the body. And this is a very common CSS debugging technique.
+You do body * and that targets all the elements inside the body. And then we're going to give them a 1px dashed red border. */
+
+/* Something interesting to note is the elements are stretched to take up all the height of the row. So this first element here has made the row quite large in terms of
+height because it has a paragraph. But element two and element three, do not need to be that tall because they don't have a paragraph inside it.
+Notice that when no elements are tall. They're all quite small. Why are these stretched? Well, it's very similar to what we did with flex.
+Where by default elements were stretched cross axis. They are also stretched here using a grid. We can prevent that by doing something like justify- items
+and we can do for example center. And that is going to shrink them horizontally and align items center is going to shrink them vertically or place them in the very center of the available
+space, taking into account the gaps. By default these are stretched in both directions, you can see that this stretches it like that.
+And align-items: stretch, stretches it like that. */
+
+body {
+    margin:0px;
+}
+
+body * {
+    border: 1px dashed red;
+}
+
+.grid {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 8px;
+    column-gap: 50px;
+    row-gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid__item {
+    background-color: aquamarine;
+
+}
+
+
+
+
