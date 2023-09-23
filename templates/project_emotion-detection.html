@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="main main--project">
+    <div>
+        <img cla="hero"  src="{{url_for('static',filename=project['hero'])}}"
+        alt="A hand holding a pen, about to write something in a project planner." />
+
+    <article class="project">
+            <article class="project__content">    
+                    <h2 class="project__heading"> {{project['name']}}   </h2>
+                <p> Hi, I'm Shivesh! I'm excited to present my Emotion Detection Using Deep Learning project, a journey into the world 
+                    of artificial intelligence and deep neural networks. This project represents my dedication to leveraging advanced 
+                    technology to understand and analyze human emotions through data.  
+                </p>
+
+                <p> The Emotion Detection Using Deep Learning project is a deep learning-based system designed to automatically 
+                    recognize and classify human emotions from various sources including images. 
+                    It's a remarkable example of how cutting-edge technology can provide valuable insights into human behavior 
+                    and sentiment. 
+                </p>
+                
+                <p> Your feedback is invaluable, and I'm open to collaboration opportunities in the field of deep learning, 
+                    emotion analysis, and AI applications. If you have ideas, suggestions, or a shared interest in this area, 
+                    please feel free to reach out..</p>
+
+            </article>
+            <section>
+                <article class="project__meta-group"> 
+                    <h3 class="project__heading project__heading--meta">Technologies used</h3>
+                    <ul class="technology-list">
+                        <li class="technology-list__item">Python</li>
+                        <li class="technology-list__item">Deep Learning</li>
+                        <!-- <li class="technology-list__item">CSS</li> -->
+                    </ul>
+                       </article>
+
+                       <a class="cta" href="{{ project['prod'] }}">
+                        <img class="cta__icon" src="{{ url_for('static', filename='pointer.svg') }}">
+                        Project Link
+                    </a>
+
+
+            </section>       
+
+
+
+
+    </article>
+
+</div>
+    </main>
+
+{%  endblock %}
