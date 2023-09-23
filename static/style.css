@@ -1,0 +1,345 @@
+*,
+*::after,
+*::before {
+    box-sizing:border-box;
+}
+
+html {
+    font-family: Lato, "sans-serif";
+}
+
+
+body {
+    margin-top: 80px;
+}
+
+
+.header {
+    text-align:center;
+}
+
+.nav {
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+
+}
+
+.nav__link {
+    text-decoration: none;
+    color: #2a4c65;
+    margin-right: 3.5rem;
+
+}
+
+.nav__link:not(:last-of-type) {
+    margin-right: 2.5rem;       
+}
+
+.nav__link:last-of-type {
+    margin-right: 0rem;       
+}
+
+
+.nav__link--active,
+.nav__link:hover{
+    font-weight: bold;
+}
+
+/* You want your paragraphs to be around 70 to 75 characters wide so you want to see the lines being about 75 letters long.
+And we're going to also add a little bit of spacing around there. */
+
+/* The first thing that we're going to do is we're going to do main margin 0 auto. And that is simply going to center the main element.
+But the main element is full width so it's not going to center anything because it takes up the entire page. So there's nothing to center around.
+What we're going to do is we're going to target the about page and we're going to for this specific page set the max width to 500px.
+And what that's going to do is as the page gets wider, going to limit the width to something that I think is reasonable for this text. */
+/* We're also going to add some padding 0 1 rem. Zero padding at the top and bottom. I think it's sufficiently spaced from the header but some padding around the sides.
+Just so it doesn't look too bad here on mobile. */
+ /*add display after project habit....  */
+ /* add .main--about {
+    flex-direction: column; after above */
+
+.main {
+    margin: 0px auto;
+    display:flex;
+    justify-content: center;
+}
+
+.main--about {
+    flex-direction: column;
+    max-width:500px;
+    padding: 0 1rem;
+    line-height: 150%;
+}
+
+
+/* contact */
+
+/* So usually when you want a fancy underline in your links, you can use a box-shadow.That is a shadow on the element and if you create the shadow just right.
+It looks like an underline, but you have a lot more customizability with it. Like the thickness of the underline that you can change and the color
+and things like that more easily. So what we're going to do is we're going to target the box-shadow. And the first argument to book-shadow is how far away in the y direction you want the shadow to appear.
+The next argument, how many pixels down should the shadow go? And that's going to be three pixels. Then the next two elements are related to the spread of the shadow, as well
+as the blur amounts of the shadow. And if you want a solid underline, you want both of those to be zero. And finally you can set a color, which I'm going to go for this one, that I've already pre-selected. And there you have that.
+Feel free to play around with these. For example, I'm going to go with five pixels there and you can see that's thicker or with one pixel, and you can see that's much thinner.
+The shadow is a fixed distance from the text. Although that can be changed with the inset keyword. */
+
+.contact {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.contact__detail {
+    margin-left: 1ch;
+   }
+
+.contact__link {
+    color:black;
+    text-decoration: none;
+    box-shadow: 0 1px 0 0 #4cafda;
+}
+
+.contact__link:hover {
+        color:#4cafda
+}
+
+
+/* Now, if we do this, you'll see that everything is centered in the available space. But some items are bigger than others.
+So we do have to make a change here, max-width is going to be 21.875 rem. And that's going to give us a small minimum amount of space.
+But you can see the previously, all our items were centered because the projects item was taken up the entire width and we're centering the items within it.
+Now the project element is not taken up the entire page. So these items are left aligned because that's all the space that the element is taking.
+You can see that here. What we want to do is we want to center this section in the page. And to do that, we don't over complicate ourselves and we just do margin: 0 auto. */
+
+
+.u-bare-link {
+    text-decoration: none;
+}
+
+.projects {
+    display:grid;
+    grid-template-columns: 1fr;
+    column-gap: 1.25rem;
+    justify-content: center;
+    justify-items: center;
+    max-width: 21.85rem;
+    margin:0 auto
+}
+
+/* Now you can see that I've done something that may be a little bit weird. We've defined a single column, but obviously as the screen gets
+wider, we want more columns. So what we're going to do is we're going to do something that we talked about in the CSS grid and CSS media query sections and we're going to define a media query.
+But this time we're going to use min-width. And I'm doing this just so you guys can see the two approaches. */
+
+@media (min-width:48.75rem){
+    .projects {
+            grid-template-columns: repeat(2,1fr);
+            max-width: 45rem;
+
+    }
+}
+
+@media (min-width:70rem){
+    .projects {
+            grid-template-columns: repeat(3,1fr);
+            max-width: 68rem;
+
+    }
+}
+
+
+/* Let's add a little bit of padding to each project card so that the text is not going to the very edge of the card. */
+/* And we also want to add something to the images. We want to make sure the max-width is 100% because in some cases, the
+images if they are too large, they can be larger than the container. And that is not good. So we do want to get rid of that.
+We're going to add a small margin-bottom. */
+
+/* Then let's add some more padding to the meta elements. So we'll do project-card__meta. And we'll do padding 0 and 1.25 rem.
+And that is going to make it so the image or rather the text is pushed in a bit from the left and the right. And it doesn't take up to the edge of the image. */
+
+/* What we want to do is we want to move this image up slightly so that it looks like there's some animation and some interaction going on.
+So how we going to do that is we're going to do, project-card:hover. And then inside that project card, we're going to target project-card__image.
+So this selector here is maybe a bit weird. but what it does is whenever we hover over the project card. Then we're going to apply some CSS to the image element.
+And the CSS that we're going to apply is transform. And I'm going to do translateY -0.5rem. */
+
+/* And now I show you what this transition is doing. What it's doing is it is easing in and out the movement of this
+translate over 0.2 seconds. So instead of it being instant, it takes 0.2 seconds. If we remove it and we refresh now, it just looks a bit robotic. */
+
+.projects__card{
+    padding: .75rem 0;
+}
+
+.project__card--image {
+    max-width:100%;
+    margin-bottom:1rem;
+    transition: transform .2s ease-in-out;
+}
+
+.project-card__meta {
+    padding: 0 1.25rem;
+  }
+  
+  .project-card__name {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+    color: #1c2023;
+  }
+
+
+  .project-card:hover .project-card__image {
+    transform: translateY(-.5rem);
+  }
+
+  .project-card:hover .project-card__name {
+    text-decoration: underline;
+  }
+
+
+  .categories {
+    display: flex;
+    padding: 0;
+    margin: 0 0 0.75rem;
+    color: #3d84a3;
+    list-style: none;
+    line-height: 1.45;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 0.075rem;
+  }
+
+ 
+/* Adds an ::after pseudo-element to each category tag, except the last one.
+   This psuedo-element contains a pipe character (|), which acts as a seperator
+   between the tags. */
+
+   .categories__tag:not(:last-of-type)::after {
+    content: "|";
+    margin: 0 0.25rem;
+  }
+
+   /* Utility class to remove link styles */
+ .u-bare-link {
+    text-decoration: none;
+  }
+
+
+/* Also, something has to notice the image is very large. When the page is too small, you get a scroll bar, which is not ideal.
+So we're going to fix that as well. The first thing we want to do is go ahead and fix our image size. And we're going to do that with hero, width: 100%.
+So this is always going to take up whatever space is available, but it's not going to affect the size of it's container.
+If the container is this wide and then the image is going to be that wide. If the container shrinks then the image will shrink.
+This helps not have that problem where the image was running off the side of the screen. This is really something that we should do with all images
+   */
+
+/* now if you see that text below are not align with image lets see how to do it.
+Now that we've got that, we have to start thinking about how to essentially limit the size of the container and make sure that the image is centered
+together with all the content. And how we're going to do that is we're going to set the content size of the text and the rest of the content excluding the image.
+We can do that with project. If you remember, we've got this article with our class project and that contains everything except the image.
+If we say max-width: 50rem then what this is going to do is it's going to limit the size of this project here. At the moment, the container isn't being affected by this change.
+So the container of project and the hero. That's this div here. But we can affect it. What we're going to do is we're going to set the container to flex.
+And then instead of using stretch, we're going to center the items in the page. And that is going to essentially constrain the size of the container
+to the size of this project element. And that is going to be 50rem. So let me go up to main here and we're going to do display:
+flex and justify-content center. When we do that. You can see that this container, the main element is shrinking this div as far as it can.
+And that div is then constrained by the width of this project element. got main add justify...
+/* 
+Something to note, now that we've changed this main element to flex is that the about page is shown as a row.
+So in main--about, we do have to do flex-direction: column and that will fix the problem. */
+
+/* The project__content is going to be flex: 7. And this is going to try to get this content to take up only 70% of the available space. */
+
+/* For the project__heading, we're going to remove the margin and increase the font size slightly. But notice that, that made the technologies used heading
+much larger because it also has the project heading class. So what we're going to do is we're going to bring in these font-size: inherit
+on the meta modifier, which is here. And that is going to just use the font size that this article is using, which is the default font size. */
+
+/* Then for this meta group, we're going to set a small margin as well. And that is so that it's separated slightly from the button, just like that. */
+
+
+.hero {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  
+  .project {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    max-width: 50rem;
+    padding: 0 1rem;
+  }
+  
+  .project__content {
+    margin-bottom: 1rem;
+    line-height: 150%;
+  }
+  
+  @media (min-width: 48.75em) {
+    .project {
+      flex-direction: row;
+      padding: 0;
+    }
+  
+    .project__content {
+      flex: 7;
+      margin-right: 3rem;
+      padding: 0;
+    }
+  }
+  
+  .project__heading {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 150%;
+  }
+  
+  .project__heading--meta {
+    font-size: inherit;
+    margin-bottom: 1rem;
+  }
+  
+  .project__meta-group {
+    margin-bottom: 1rem;
+  }
+  
+  .project__meta-group,
+  .cta {
+    padding: 1rem;
+    background-color: #d4eafa;
+    border-radius: 6px;
+  }
+  
+  .cta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #1c2023;
+    text-decoration: none;
+  }
+  
+  .cta:hover {
+    text-decoration: underline;
+  }
+  
+  .cta__icon {
+    margin-right: 0.5rem;
+    transform: translateY(1px);
+  }
+  
+  .technology-list {
+    list-style: none;
+    padding-left: 0.75rem;
+    margin: 0;
+    line-height: 1.75;
+  }
+  
+  .technology-list__item:before {
+    content: "";
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    background-image: url("list-check.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 0.5rem;
+  
+    /* necessary for vertical centering */
+    transform: translateY(2px);
+  }
