@@ -5,6 +5,15 @@ app = Flask(__name__)
 
 
 projects = [
+     {
+        "name": "Movie Watchlist App with Python and Flask",
+        "thumb": "movie.png",
+        "hero": "movie-hero.png",
+        "categories": ["python", "flask"],
+        "slug": "movie-watchlist",
+        "prod": "https://movie-watchlist-1q8p.onrender.com/",
+    },
+
     {
         "name": "Habit tracking app with Python and MongoDB",
         "thumb": "habit-tracking.png",
