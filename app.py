@@ -1,11 +1,15 @@
-from flask import Flask, render_template, abort
-
-app = Flask(__name__)
-
-
-
 projects = [
-     {
+
+      {
+        "name": "Movie Fight App with JavaScript, HTML and CSS",
+        "thumb": "movie-fight.png",
+        "hero": "movie-fight -hero.png",
+        "categories": ["java script", "html", 'css'],
+        "slug": "movie-fight",
+        "prod": "https://shiveshr140.github.io/Movie-Fight/"
+    },
+
+    {
         "name": "Movie Watchlist App with Python and Flask",
         "thumb": "movie.png",
         "hero": "movie-hero.png",
@@ -13,6 +17,7 @@ projects = [
         "slug": "movie-watchlist",
         "prod": "https://movie-watchlist-1q8p.onrender.com/",
     },
+
 
     {
         "name": "Habit tracking app with Python and MongoDB",
@@ -22,6 +27,7 @@ projects = [
         "slug": "habit-tracking",
         "prod": "https://habit-tracker-7dde.onrender.com/",
     },
+    
     {
         "name": "Microblog app with Python and Flask",
         "thumb": "micro-blog.png",
@@ -30,6 +36,16 @@ projects = [
         "slug": "micro-blog",
         "prod": "https://python-microblog-nati.onrender.com/"
     },
+
+    {
+        "name": "Maze Game using JavaScript and MatterJs",
+        "thumb": "maze-game.png",
+        "hero": "maze-game -hero.png",
+        "categories": ["java script", "matter js"],
+        "slug": "maze-game",
+        "prod": "https://shiveshr140.github.io/Maze-Game/"
+    },
+
 
     {
         "name": "Instagram Database Clone using SQL and MYSQL",
@@ -89,5 +105,6 @@ def project(slug):
         return render_template(f"project_{slug}.html", project=slug_to_project[slug])
     
 
-
-
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
