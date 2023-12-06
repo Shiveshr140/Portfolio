@@ -5,6 +5,15 @@ app = Flask(__name__)
 
 projects = [
 
+       {
+        "name": "E-Commerce Web App with Nodejs and Express",
+        "thumb": "e-comm.png",
+        "hero": "e-comm-hero.png",
+        "categories": ["nodejs", "express", "html", 'css'],
+        "slug": "e-comm",
+        "prod": "http://mynodeapp.eba-mxt3bqgp.ap-south-1.elasticbeanstalk.com/"
+    },
+
       {
         "name": "Movie Fight App with JavaScript, HTML and CSS",
         "thumb": "movie-fight.png",
